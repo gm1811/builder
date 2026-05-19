@@ -1,22 +1,24 @@
 import type { Metadata } from 'next';
-import { Montserrat, Source_Sans_3 } from 'next/font/google';
+import { Fraunces, Inter } from 'next/font/google';
 import './builder.css';
 
-const montserrat = Montserrat({
+const fraunces = Fraunces({
   subsets: ['latin'],
-  variable: '--font-montserrat',
+  variable: '--font-fraunces',
   display: 'swap',
+  weight: ['300', '400', '500', '600'],
 });
 
-const sourceSans = Source_Sans_3({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-source-sans',
+  variable: '--font-inter',
   display: 'swap',
+  weight: ['300', '400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
-  title: 'BuildCraft Pro | Premium Construction Services',
-  description: 'Building the Future, One Structure at a Time. Premium residential and commercial construction services.',
+  title: 'Revita | Plataforma de Desarrollo Residencial Integral',
+  description: 'Transformamos inmuebles en inversiones con valor. Gestionamos oportunidades de inversión residencial en Murcia y Levante.',
 };
 
 export default function BuilderLayout({
@@ -25,8 +27,8 @@ export default function BuilderLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${sourceSans.variable}`}>
-      <body className="font-sans antialiased text-[#2D3748] bg-[#FAFAFA]">
+    <html lang="es" className={`${fraunces.variable} ${inter.variable}`}>
+      <body className="font-sans antialiased text-[#1A1A1A] bg-white">
         {children}
       </body>
     </html>

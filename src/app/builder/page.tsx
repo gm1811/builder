@@ -1,25 +1,25 @@
-import { NavBar } from './components/nav-bar';
-import { HeroSection } from './components/hero-section';
-import { AboutSection } from './components/about-section';
-import { ServicesSection } from './components/services-section';
-import { PortfolioSection } from './components/portfolio-section';
-import { WhyChooseSection } from './components/why-choose-section';
-import { TestimonialsSection } from './components/testimonials-section';
-import { ContactSection } from './components/contact-section';
-import { FooterSection } from './components/footer-section';
+import { RevitaNav } from './components/revita-nav';
+import { SectionHero } from './components/section-hero';
+import { SectionKPIs } from './components/section-kpis';
+import { SectionLead } from './components/section-lead';
+import { SectionVertical } from './components/section-vertical';
+import { SectionModels } from './components/section-models';
+import { SectionProjects } from './components/section-projects';
+import { SectionCompare } from './components/section-compare';
+import { RevitaFooter } from './components/revita-footer';
 
 export default function BuilderPage() {
   return (
-    <main className="font-sans min-h-screen relative">
-      <NavBar />
-      <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <PortfolioSection />
-      <WhyChooseSection />
-      <TestimonialsSection />
-      <ContactSection />
-      <FooterSection />
+    <main className="min-h-screen relative overflow-x-hidden selection:bg-black selection:text-white">
+      <RevitaNav />
+      <SectionHero />
+      <SectionKPIs />
+      <SectionLead />
+      <SectionVertical />
+      <SectionModels />
+      <SectionProjects />
+      <SectionCompare />
+      <RevitaFooter />
     </main>
   );
 }
