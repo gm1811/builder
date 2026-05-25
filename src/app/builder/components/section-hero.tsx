@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export function SectionHero() {
   return (
-    <section className="relative min-h-[85vh] flex items-center bg-[#0A0A0A] overflow-hidden text-white py-24 md:py-32">
+    <section className="relative min-h-[70vh] flex items-center bg-[#0A0A0A] overflow-hidden text-white pt-24 pb-14 md:pt-32 md:pb-20">
       {/* Background Image with Dark Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-luminosity"
@@ -44,12 +44,14 @@ export function SectionHero() {
         </div>
 
         {/* Bottom Metadata */}
-        <div className="mt-20 md:mt-28 pt-8 border-t border-neutral-850 flex flex-col sm:flex-row justify-between gap-4 text-xs tracking-wider uppercase text-neutral-400">
-          <div className="flex items-center gap-3">
+        <div className="mt-20 md:mt-28 pt-8 border-t border-neutral-850 flex flex-col md:flex-row justify-between gap-6 text-xs tracking-wider uppercase text-neutral-400">
+          <div className="flex items-center gap-3 shrink-0">
             <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
             Co-invertimos en cada proyecto que ofrecemos
           </div>
-          <div>— 001 / 008</div>
+          <p className="normal-case tracking-normal text-sm font-light text-neutral-400 text-left max-w-[550px] leading-relaxed">
+            Somos una boutique de desarrollo residencial integral. Transformamos activos residenciales en inversiones con valor, desde la adquisición hasta la rehabilitación y comercialización.
+          </p>
         </div>
       </div>
     </section>

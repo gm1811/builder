@@ -36,19 +36,19 @@ export function SectionVertical() {
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 border-t border-[#E5E5E5] border-b border-[#E5E5E5]">
+        <div className="grid grid-cols-3 border-t border-[#E5E5E5] border-b border-[#E5E5E5]">
           {steps.map((step, idx) => (
             <div
               key={idx}
-              className="py-10 px-5 sm:px-6 md:px-10 border-b sm:border-b-0 border-[#E5E5E5] sm:border-r last:border-r-0 hover:bg-neutral-50 transition-colors duration-300"
+              className="py-6 px-3 sm:py-14 sm:px-10 border-r last:border-r-0 border-[#E5E5E5] hover:bg-neutral-50 transition-colors duration-300"
             >
-              <span className="font-serif text-xs text-neutral-400 tracking-widest block mb-12">
+              <span className="font-serif text-[9px] sm:text-xs text-neutral-400 tracking-widest block mb-4 sm:mb-12">
                 — {step.num}
               </span>
-              <h3 className="font-serif font-normal text-2xl text-[#1A1A1A] mb-6 leading-snug">
+              <h3 className="font-serif font-normal text-xs sm:text-2xl text-[#1A1A1A] mb-2 sm:mb-6 leading-snug">
                 {step.title}
               </h3>
-              <p className="text-neutral-600 font-light text-sm leading-relaxed">
+              <p className="text-neutral-600 font-light text-[9px] sm:text-sm leading-relaxed">
                 {step.desc}
               </p>
             </div>

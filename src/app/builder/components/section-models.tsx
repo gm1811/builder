@@ -50,43 +50,43 @@ export function SectionModels() {
           </h2>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 gap-12">
+        <div className="grid grid-cols-2 gap-3 md:gap-8">
           {models.map((model, idx) => (
             <div
               key={idx}
-              className="group bg-white border border-neutral-300 hover:border-black transition-all duration-500 overflow-hidden grid grid-cols-1 md:grid-cols-2"
+              className="group bg-white border border-neutral-300 hover:border-black transition-all duration-500 overflow-hidden flex flex-col justify-between h-full"
             >
               {/* Card Header (Image with icon overlay) */}
-              <div className="relative aspect-video md:aspect-auto h-full min-h-[320px] md:min-h-[400px] overflow-hidden bg-neutral-100">
+              <div className="relative aspect-video overflow-hidden bg-neutral-100">
                 <img
                   src={model.img}
                   alt="Modelo"
                   className="w-full h-full object-cover grayscale opacity-90 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100"
                 />
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all duration-500" />
-                <div className="absolute top-6 right-6 font-serif text-xs text-neutral-500 group-hover:text-white tracking-widest bg-white/90 group-hover:bg-black/40 px-3 py-1.5 backdrop-blur-sm transition-all duration-300">
+                <div className="absolute top-4 right-4 md:top-6 md:right-6 font-serif text-[10px] md:text-xs text-neutral-500 group-hover:text-white tracking-widest bg-white/90 group-hover:bg-black/40 px-2 py-1 md:px-3 md:py-1.5 backdrop-blur-sm transition-all duration-300">
                   {model.num}
                 </div>
-                <div className="absolute bottom-6 left-6 text-white bg-black/40 p-3 backdrop-blur-sm">
+                <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 text-white bg-black/40 p-2 md:p-3 backdrop-blur-sm scale-75 md:scale-100 origin-bottom-left">
                   {model.icon}
                 </div>
               </div>
 
               {/* Card Body */}
-              <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-between">
+              <div className="p-4 md:p-8 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="text-[11px] font-medium tracking-[3px] uppercase text-neutral-500 mb-4">
+                  <div className="text-[9px] md:text-[11px] font-medium tracking-[2px] md:tracking-[3px] uppercase text-neutral-500 mb-2 md:mb-4">
                     {model.label}
                   </div>
-                  <h3 className="font-serif text-3xl font-light text-black mb-5 tracking-tight group-hover:italic transition-all duration-300">
+                  <h3 className="font-serif text-sm sm:text-lg md:text-3xl font-light text-black mb-3 md:mb-5 tracking-tight group-hover:italic transition-all duration-300">
                     {model.title}
                   </h3>
-                  <p className="text-neutral-600 font-light text-base leading-relaxed mb-10">
+                  <p className="text-neutral-600 font-light text-xs md:text-base leading-relaxed mb-6">
                     {model.desc}
                   </p>
                 </div>
                 <div>
-                  <span className="inline-flex items-center gap-3 text-xs tracking-[2px] uppercase text-[#1A1A1A] font-medium border-b border-black pb-1.5 transition-all duration-300 group-hover:gap-5">
+                  <span className="inline-flex items-center gap-2 md:gap-3 text-[9px] md:text-xs tracking-[1.5px] md:tracking-[2px] uppercase text-[#1A1A1A] font-medium border-b border-black pb-1 transition-all duration-300 group-hover:gap-4 md:group-hover:gap-5">
                     Ver detalle →
                   </span>
                 </div>
