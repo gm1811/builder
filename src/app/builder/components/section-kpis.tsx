@@ -19,11 +19,11 @@ export function SectionKPIs() {
 
   return (
     <section className="bg-[#0A0A0A] text-white border-t border-neutral-900">
-      <div className="max-w-[1320px] mx-auto grid grid-cols-1 md:grid-cols-3">
+      <div className="max-w-[1320px] mx-auto grid grid-cols-1 sm:grid-cols-3">
         {kpis.map((kpi, idx) => (
           <div
             key={idx}
-            className="p-10 md:p-16 border-b md:border-b-0 border-neutral-900 md:border-r last:border-r-0 hover:bg-neutral-950 transition-all duration-300 group"
+            className="p-6 sm:p-10 md:p-16 border-b sm:border-b-0 border-neutral-900 sm:border-r last:border-r-0 hover:bg-neutral-950 transition-all duration-300 group"
           >
             <div className="font-serif text-sm text-neutral-600 tracking-widest mb-10 transition-colors group-hover:text-neutral-450">
               — {kpi.num}

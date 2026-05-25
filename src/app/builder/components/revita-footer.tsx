@@ -9,6 +9,13 @@ export function RevitaFooter() {
   const [honeypot, setHoneypot] = useState('');
   const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
+  const [contactName, setContactName] = useState('');
+  const [contactLastName, setContactLastName] = useState('');
+  const [contactPhone, setContactPhone] = useState('');
+  const [contactEmail, setContactEmail] = useState('');
+  const [contactPolicy, setContactPolicy] = useState(false);
+  const [contactStatus, setContactStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     if (honeypot) return;
@@ -30,6 +37,27 @@ export function RevitaFooter() {
     setNewsletterStatus('submitting');
     setTimeout(() => {
       setNewsletterStatus('success');
+    }, 1200);
+  };
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!contactPolicy) return;
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(contactEmail)) {
+      setContactStatus('error');
+      return;
+    }
+
+    setContactStatus('submitting');
+    setTimeout(() => {
+      setContactStatus('success');
+      setContactName('');
+      setContactLastName('');
+      setContactPhone('');
+      setContactEmail('');
+      setContactPolicy(false);
     }, 1200);
   };
 
@@ -184,6 +212,93 @@ export function RevitaFooter() {
                 </button>
               </form>
             )}
+
+            {/* Contact Form */}
+            <div className="mt-12 pt-12 border-t border-neutral-900">
+              <h4 className="text-[10px] font-semibold tracking-[3px] uppercase text-neutral-500 mb-8">
+                Contacto
+              </h4>
+              
+              {contactStatus === 'success' ? (
+                <div className="bg-neutral-900 border border-neutral-850 p-6 text-center">
+                  <span className="text-xl mb-2 block text-white">✓</span>
+                  <h5 className="text-white text-sm font-medium mb-1">¡Mensaje enviado!</h5>
+                  <p className="text-xs text-neutral-500 font-light">
+                    Gracias por ponerte en contacto. Te responderemos lo antes posible.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleContactSubmit} className="flex flex-col gap-3">
+                  <input
+                    type="text"
+                    placeholder="Nombre"
+                    value={contactName}
+                    onChange={(e) => {
+                      setContactName(e.target.value);
+                      if (contactStatus === 'error') setContactStatus('idle');
+                    }}
+                    required
+                    className="bg-transparent border-b border-neutral-800 focus:border-white py-3 text-sm font-light text-white placeholder-neutral-600 focus:outline-none rounded-none"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Apellidos"
+                    value={contactLastName}
+                    onChange={(e) => {
+                      setContactLastName(e.target.value);
+                      if (contactStatus === 'error') setContactStatus('idle');
+                    }}
+                    required
+                    className="bg-transparent border-b border-neutral-800 focus:border-white py-3 text-sm font-light text-white placeholder-neutral-600 focus:outline-none rounded-none"
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Teléfono"
+                    value={contactPhone}
+                    onChange={(e) => {
+                      setContactPhone(e.target.value);
+                      if (contactStatus === 'error') setContactStatus('idle');
+                    }}
+                    required
+                    className="bg-transparent border-b border-neutral-800 focus:border-white py-3 text-sm font-light text-white placeholder-neutral-600 focus:outline-none rounded-none"
+                  />
+                  <input
+                    type="email"
+                    placeholder="Correo electrónico"
+                    value={contactEmail}
+                    onChange={(e) => {
+                      setContactEmail(e.target.value);
+                      if (contactStatus === 'error') setContactStatus('idle');
+                    }}
+                    required
+                    className="bg-transparent border-b border-neutral-800 focus:border-white py-3 text-sm font-light text-white placeholder-neutral-600 focus:outline-none rounded-none"
+                  />
+                  
+                  <label className="flex items-start gap-3 cursor-pointer text-xs font-light text-neutral-500 hover:text-neutral-400 mt-3 select-none">
+                    <input
+                      type="checkbox"
+                      required
+                      checked={contactPolicy}
+                      onChange={(e) => setContactPolicy(e.target.checked)}
+                      className="mt-1 rounded-none border-neutral-800 accent-white bg-transparent focus:ring-0 focus:outline-none cursor-pointer w-4 h-4 shrink-0"
+                    />
+                    <span>He leído y acepto la política de privacidad</span>
+                  </label>
+
+                  {contactStatus === 'error' && (
+                    <p className="text-xs text-red-400 mt-1">Por favor, introduce un correo electrónico válido.</p>
+                  )}
+                  
+                  <button
+                    type="submit"
+                    disabled={contactStatus === 'submitting'}
+                    className="bg-white hover:bg-neutral-200 text-black text-[11px] font-semibold tracking-[2.5px] uppercase py-3.5 mt-4 transition-colors duration-300"
+                  >
+                    {contactStatus === 'submitting' ? 'Enviando...' : 'Enviar mensaje'}
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
 
         </div>

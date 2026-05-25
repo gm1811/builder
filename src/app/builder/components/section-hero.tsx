@@ -16,24 +16,20 @@ export function SectionHero() {
           
           {/* Left Column - H1 */}
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-3 text-xs tracking-[3px] uppercase text-neutral-400 mb-8 md:mb-12">
-              <span className="w-8 h-[1px] bg-neutral-400" />
-              Murcia · Levante · 2025
-            </div>
             <h1 className="font-serif font-light text-5xl md:text-7xl lg:text-[80px] leading-[1.05] tracking-tight text-white">
               Transformamos<br />
               inmuebles en<br />
-              <span className="italic">inversiones</span><br />
-              <span className="border-b-2 border-white pb-1 font-normal">con valor</span>.
+              <span className="italic">inversiones líquidas</span><br />
+              <span className="border-b-2 border-white pb-1 font-normal">y rentables</span>.
             </h1>
           </div>
 
           {/* Right Column - Subtitle & CTA */}
           <div className="lg:col-span-5 lg:pl-10 lg:border-l lg:border-neutral-800 pb-2">
             <p className="text-lg md:text-xl font-light text-neutral-300 leading-relaxed mb-8 md:mb-10">
-              Gestionamos oportunidades de inversión residencial cuidadosamente seleccionadas. 
+              Gestionamos oportunidades de inversión inmobiliaria residencial en Murcia y Levante.
               Diversifica tu capital y alcanza rentabilidades del{' '}
-              <strong className="text-white font-medium">8 – 14 % anual</strong> con riesgo controlado.
+              <strong className="text-white font-medium">8–14% anual</strong> con riesgo controlado.
             </p>
             <div className="flex flex-wrap items-center gap-6">
               <Link href="#contacto" className="btn btn-primary !bg-white !text-black !border-white hover:!bg-transparent hover:!text-white">

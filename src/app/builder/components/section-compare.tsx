@@ -69,21 +69,24 @@ export function SectionCompare() {
                 {row.concept}
               </div>
               
-              {/* Revita Cell */}
-              <div className="col-span-1 md:col-span-4 py-6 md:py-7 px-6 md:px-7 text-sm font-light leading-relaxed flex items-start gap-4">
-                <span className="w-3.5 h-3.5 rounded-full bg-black shrink-0 mt-1" />
-                <div>
-                  <span className="md:hidden font-medium text-xs text-neutral-400 uppercase tracking-widest block mb-1">Con Revita</span>
-                  {row.revita}
+              {/* Comparison Cells Container */}
+              <div className="col-span-1 md:col-span-9 grid grid-cols-2 md:grid-cols-9">
+                {/* Revita Cell */}
+                <div className="col-span-1 md:col-span-4 py-6 md:py-7 px-4 md:px-7 text-sm font-light leading-relaxed flex items-start gap-3 md:gap-4 border-r border-[#E5E5E5] md:border-r-0">
+                  <span className="w-3.5 h-3.5 rounded-full bg-black shrink-0 mt-1" />
+                  <div>
+                    <span className="md:hidden font-medium text-xs text-neutral-400 uppercase tracking-widest block mb-1">Con Revita</span>
+                    {row.revita}
+                  </div>
                 </div>
-              </div>
 
-              {/* Solo Cell */}
-              <div className="col-span-1 md:col-span-5 py-6 md:py-7 px-6 md:px-7 text-sm font-light leading-relaxed text-neutral-400 line-through decoration-neutral-300 flex items-start gap-4">
-                <span className="w-3.5 h-3.5 rounded-full border border-neutral-300 shrink-0 mt-1" />
-                <div>
-                  <span className="md:hidden font-medium text-xs text-neutral-450 uppercase tracking-widest block mb-1">Por tu cuenta</span>
-                  {row.solo}
+                {/* Solo Cell */}
+                <div className="col-span-1 md:col-span-5 py-6 md:py-7 px-4 md:px-7 text-sm font-light leading-relaxed text-neutral-400 line-through decoration-neutral-300 flex items-start gap-3 md:gap-4">
+                  <span className="w-3.5 h-3.5 rounded-full border border-neutral-300 shrink-0 mt-1" />
+                  <div>
+                    <span className="md:hidden font-medium text-xs text-neutral-450 uppercase tracking-widest block mb-1">Por tu cuenta</span>
+                    {row.solo}
+                  </div>
                 </div>
               </div>
             </div>

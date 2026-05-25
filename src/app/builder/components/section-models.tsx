@@ -50,14 +50,14 @@ export function SectionModels() {
           </h2>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-12">
           {models.map((model, idx) => (
             <div
               key={idx}
-              className="group bg-white border border-neutral-300 hover:border-black transition-all duration-500 overflow-hidden flex flex-col justify-between"
+              className="group bg-white border border-neutral-300 hover:border-black transition-all duration-500 overflow-hidden grid grid-cols-1 md:grid-cols-2"
             >
               {/* Card Header (Image with icon overlay) */}
-              <div className="relative aspect-video overflow-hidden bg-neutral-100">
+              <div className="relative aspect-video md:aspect-auto h-full min-h-[320px] md:min-h-[400px] overflow-hidden bg-neutral-100">
                 <img
                   src={model.img}
                   alt="Modelo"
@@ -73,7 +73,7 @@ export function SectionModels() {
               </div>
 
               {/* Card Body */}
-              <div className="p-8 md:p-10 flex-1 flex flex-col justify-between">
+              <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-between">
                 <div>
                   <div className="text-[11px] font-medium tracking-[3px] uppercase text-neutral-500 mb-4">
                     {model.label}
@@ -81,7 +81,7 @@ export function SectionModels() {
                   <h3 className="font-serif text-3xl font-light text-black mb-5 tracking-tight group-hover:italic transition-all duration-300">
                     {model.title}
                   </h3>
-                  <p className="text-neutral-600 font-light text-base leading-relaxed mb-10 min-h-[72px]">
+                  <p className="text-neutral-600 font-light text-base leading-relaxed mb-10">
                     {model.desc}
                   </p>
                 </div>

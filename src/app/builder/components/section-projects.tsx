@@ -69,7 +69,7 @@ export function SectionProjects() {
           {projects.map((project, idx) => (
             <Link key={idx} href="#" className="group block text-decoration-none text-inherit">
               {/* Project Image */}
-              <div className="relative aspect-[4/5] bg-neutral-100 overflow-hidden mb-6">
+              <div className="relative aspect-[4/3] bg-neutral-100 overflow-hidden mb-6">
                 <span className={`absolute top-5 left-5 z-10 px-3.5 py-1.5 text-[9px] font-medium tracking-[2.5px] uppercase ${project.badgeClass}`}>
                   {project.badge}
                 </span>
