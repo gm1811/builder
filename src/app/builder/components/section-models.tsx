@@ -37,7 +37,7 @@ export function SectionModels() {
   ];
 
   return (
-    <section className="bg-neutral-50 py-24 md:py-32">
+    <section className="bg-neutral-50 py-12 md:py-16">
       <div className="max-w-[1320px] mx-auto px-6 md:px-10">
         <ScrollReveal>
           <span className="inline-flex items-center gap-3 text-xs tracking-[3px] uppercase text-neutral-600 mb-8 font-medium">

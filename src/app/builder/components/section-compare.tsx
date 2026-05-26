@@ -30,7 +30,7 @@ export function SectionCompare() {
   ];
 
   return (
-    <section className="bg-white py-24 md:py-32 border-t border-[#E5E5E5] border-b border-[#E5E5E5]">
+    <section className="bg-white py-12 md:py-16 border-t border-[#E5E5E5] border-b border-[#E5E5E5]">
       <div className="max-w-[1320px] mx-auto px-6 md:px-10">
         <ScrollReveal>
           <span className="inline-flex items-center gap-3 text-xs tracking-[3px] uppercase text-neutral-600 mb-8 font-medium">

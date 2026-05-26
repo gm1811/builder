@@ -29,7 +29,7 @@ export function SectionLead() {
   };
 
   return (
-    <section className="bg-neutral-50 py-24 md:py-32 border-b border-[#E5E5E5]">
+    <section className="bg-neutral-50 py-12 md:py-16 border-b border-[#E5E5E5]">
       <div className="max-w-[1320px] mx-auto px-6 md:px-10">
         <div className="max-w-[680px] mx-auto text-center">
           <h2 className="font-serif font-light text-4xl md:text-5xl leading-tight text-[#1A1A1A] mb-5 tracking-tight">

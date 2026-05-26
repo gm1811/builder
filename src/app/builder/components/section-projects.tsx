@@ -45,7 +45,7 @@ export function SectionProjects() {
   ];
 
   return (
-    <section id="proyectos" className="py-24 md:py-32">
+    <section id="proyectos" className="py-12 md:py-16">
       <div className="max-w-[1320px] mx-auto px-6 md:px-10">
         <ScrollReveal>
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 border-b border-[#E5E5E5] pb-8 mb-16">
