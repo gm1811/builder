@@ -19,8 +19,7 @@ export function SectionHero() {
             <h1 className="font-serif font-light text-5xl md:text-7xl lg:text-[80px] leading-[1.05] tracking-tight text-white">
               Transformamos<br />
               inmuebles en<br />
-              <span className="italic">inversiones líquidas</span><br />
-              <span className="border-b-2 border-white pb-1 font-normal">y rentables</span>.
+              <span className="italic border-b-2 border-white pb-1 font-normal">inversiones rentables</span>.
             </h1>
           </div>
 
@@ -44,13 +43,13 @@ export function SectionHero() {
         </div>
 
         {/* Bottom Metadata */}
-        <div className="mt-20 md:mt-28 pt-8 border-t border-neutral-850 flex flex-col md:flex-row justify-between gap-6 text-xs tracking-wider uppercase text-neutral-400">
-          <div className="flex items-center gap-3 shrink-0">
-            <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
-            Co-invertimos en cada proyecto que ofrecemos
-          </div>
-          <p className="normal-case tracking-normal text-sm font-light text-neutral-400 text-left max-w-[550px] leading-relaxed">
-            Somos una boutique de desarrollo residencial integral. Transformamos activos residenciales en inversiones con valor, desde la adquisición hasta la rehabilitación y comercialización.
+        <div className="mt-20 md:mt-28 pt-12 border-t border-neutral-850 text-center w-full flex flex-col items-center justify-center">
+          <p className="font-sans font-semibold text-lg md:text-2xl lg:text-[26px] leading-relaxed text-white max-w-[880px] mx-auto">
+            Somos una boutique de desarrollo residencial integral.<br />
+            Transformamos activos residenciales en inversiones con valor,<br />
+            <span className="text-[#E5A93C] font-bold">
+              desde la adquisición hasta la rehabilitación y comercialización.
+            </span>
           </p>
         </div>
       </div>

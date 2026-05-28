@@ -20,39 +20,47 @@ export function SectionVertical() {
   ];
 
   return (
-    <section id="proceso" className="py-12 md:py-16 relative">
+    <section id="proceso" className="pt-2 pb-12 md:pt-4 md:pb-16 relative">
       <div className="max-w-[1320px] mx-auto px-6 md:px-10">
         <ScrollReveal>
-          <span className="inline-flex items-center gap-3 text-xs tracking-[3px] uppercase text-neutral-600 mb-8 font-medium">
-            <span className="w-8 h-[1px] bg-[#1A1A1A]" />
-            Integración vertical de procesos
-          </span>
-          <h2 className="font-serif font-light text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] leading-tight mb-8 tracking-tight max-w-[900px]">
+          <h2 className="font-serif font-light text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] leading-tight mb-6 tracking-tight max-w-[900px]">
             Controlamos cada etapa.<br />
             <span className="italic">Sin intermediarios.</span>
           </h2>
-          <p className="text-neutral-600 font-light text-lg md:text-xl max-w-[680px] leading-relaxed mb-16">
+          <p className="text-neutral-600 font-light text-lg md:text-xl max-w-[680px] leading-relaxed mb-12">
             Operamos como una plataforma integral: desde la identificación del activo hasta la comercialización. Esta verticalización es la base de la rentabilidad.
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-3 border-t border-[#E5E5E5] border-b border-[#E5E5E5]">
-          {steps.map((step, idx) => (
-            <div
-              key={idx}
-              className="py-6 px-3 sm:py-14 sm:px-10 border-r last:border-r-0 border-[#E5E5E5] hover:bg-neutral-50 transition-colors duration-300"
-            >
-              <span className="font-serif text-[9px] sm:text-xs text-neutral-400 tracking-widest block mb-4 sm:mb-12">
-                — {step.num}
-              </span>
-              <h3 className="font-serif font-normal text-xs sm:text-2xl text-[#1A1A1A] mb-2 sm:mb-6 leading-snug">
-                {step.title}
-              </h3>
-              <p className="text-neutral-600 font-light text-[9px] sm:text-sm leading-relaxed">
-                {step.desc}
-              </p>
-            </div>
-          ))}
+        <div className="grid grid-cols-3 gap-3 md:gap-8">
+          {steps.map((step, idx) => {
+            const isInverted = idx === 1;
+            return (
+              <div
+                key={idx}
+                className={`p-4 md:p-10 rounded-md flex flex-col justify-start min-h-[180px] md:min-h-[220px] transition-all duration-350 ${
+                  isInverted
+                    ? 'bg-black text-white'
+                    : 'bg-white text-black border border-[#E0E0E0] hover:border-black'
+                }`}
+              >
+                <h3
+                  className={`font-sans font-medium text-xs sm:text-lg md:text-2xl mb-2 md:mb-4 leading-snug ${
+                    isInverted ? 'text-white' : 'text-[#1A1A1A]'
+                  }`}
+                >
+                  {step.title}
+                </h3>
+                <p
+                  className={`font-sans font-light text-[9px] sm:text-xs md:text-sm leading-relaxed ${
+                    isInverted ? 'text-neutral-300' : 'text-neutral-600'
+                  }`}
+                >
+                  {step.desc}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

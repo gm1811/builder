@@ -285,7 +285,7 @@ export default function ContactoPage() {
               <div className="contact-info-block">
                 <div className="contact-info-label">Email</div>
                 <div className="contact-info-value serif">
-                  <a href="mailto:inversores@revita.es">inversores@revita.es</a>
+                  <a href="mailto:inversores@gruporevita.com">inversores@gruporevita.com</a>
                 </div>
               </div>
               <div className="contact-info-block">

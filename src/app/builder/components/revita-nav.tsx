@@ -23,13 +23,12 @@ export function RevitaNav() {
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#E5E5E5] transition-all duration-300">
         <div className="max-w-[1320px] mx-auto px-6 md:px-10 flex justify-between items-center py-5 relative">
           {/* Logo */}
-          <Link href="/builder" className="flex items-center gap-3 group">
-            <div className="w-9 h-9 bg-black flex items-center justify-center font-serif text-xl font-normal text-white italic transition-transform group-hover:scale-105">
-              R
-            </div>
-            <span className="font-serif font-normal text-2xl tracking-[4px] text-black">
-              REVITA
-            </span>
+          <Link href="/builder" className="flex items-center group">
+            <img 
+              src="/img/revita/Logos/Icon + Text Transp.png" 
+              alt="Revita" 
+              className="h-16 w-auto object-contain bg-transparent transition-transform group-hover:scale-103"
+            />
           </Link>
 
           {/* Desktop Nav */}

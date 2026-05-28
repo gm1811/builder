@@ -33,10 +33,6 @@ export function SectionCompare() {
     <section className="bg-white py-12 md:py-16 border-t border-[#E5E5E5] border-b border-[#E5E5E5]">
       <div className="max-w-[1320px] mx-auto px-6 md:px-10">
         <ScrollReveal>
-          <span className="inline-flex items-center gap-3 text-xs tracking-[3px] uppercase text-neutral-600 mb-8 font-medium">
-            <span className="w-8 h-[1px] bg-[#1A1A1A]" />
-            Por qué Revita
-          </span>
           <h2 className="font-serif font-light text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] leading-tight mb-8 tracking-tight max-w-[900px]">
             La diferencia entre invertir<br />
             <span className="italic">con criterio</span> o sin él.

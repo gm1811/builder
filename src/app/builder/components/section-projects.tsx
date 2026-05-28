@@ -50,10 +50,6 @@ export function SectionProjects() {
         <ScrollReveal>
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 border-b border-[#E5E5E5] pb-8 mb-16">
             <div>
-              <span className="inline-flex items-center gap-3 text-xs tracking-[3px] uppercase text-neutral-600 mb-6 font-medium">
-                <span className="w-8 h-[1px] bg-[#1A1A1A]" />
-                Inversiones realizadas
-              </span>
               <h2 className="font-serif font-light text-4xl md:text-5xl text-[#1A1A1A] leading-tight tracking-tight">
                 Últimos proyectos<br />
                 <span className="italic">inmobiliarios.</span>
