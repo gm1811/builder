@@ -43,7 +43,7 @@ export function SectionKPIs() {
             <div className="font-serif text-xl sm:text-6xl md:text-7xl lg:text-8vw font-light tracking-tighter mb-2 sm:mb-4 text-white">
               {kpi.value}
             </div>
-            <div className="text-[7px] sm:text-[10px] md:text-xs uppercase tracking-[1px] sm:tracking-[2.5px] text-neutral-400 font-medium leading-relaxed max-w-[200px]">
+            <div className="text-[12px] sm:text-[17px] md:text-[20px] uppercase tracking-[1px] sm:tracking-[2.5px] text-neutral-400 font-medium leading-relaxed max-w-[340px]">
               {kpi.label}
             </div>
           </div>

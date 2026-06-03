@@ -55,9 +55,6 @@ export function SectionProjects() {
                 <span className="italic">inmobiliarios.</span>
               </h2>
             </div>
-            <Link href="#" className="btn-arrow">
-              Ver todos
-            </Link>
           </div>
         </ScrollReveal>
 
@@ -74,9 +71,6 @@ export function SectionProjects() {
                   alt={project.name}
                   className="w-full h-full object-cover grayscale opacity-90 transition-transform duration-700 group-hover:scale-104 group-hover:grayscale-0 group-hover:opacity-100"
                 />
-                <span className="absolute bottom-2 right-2 md:bottom-5 md:right-5 font-serif text-[10px] md:text-[13px] text-neutral-500 group-hover:text-white tracking-widest bg-white/95 group-hover:bg-black/40 px-1.5 py-0.5 md:px-2 md:py-1 backdrop-blur-sm transition-all duration-300">
-                  {project.num}
-                </span>
               </div>
 
               {/* Project Meta */}
@@ -88,13 +82,13 @@ export function SectionProjects() {
               </h3>
 
               {/* Project Stats */}
-              <div className="flex border-t border-[#E5E5E5] pt-3 md:pt-4 gap-2 md:gap-6">
+              <div className="grid grid-cols-3 gap-1.5 md:gap-2.5 mt-4">
                 {project.stats.map((stat, sIdx) => (
-                  <div key={sIdx} className="flex-1">
-                    <strong className="font-serif font-normal text-[10px] sm:text-xs md:text-base text-[#1A1A1A] block">
+                  <div key={sIdx} className="bg-neutral-50 border border-neutral-200/60 p-2 md:p-3 text-center transition-all duration-300 group-hover:bg-neutral-100/80 group-hover:border-neutral-300">
+                    <strong className="font-serif font-normal text-[15px] sm:text-[18px] md:text-[24px] text-[#1A1A1A] block leading-tight">
                       {stat.value}
                     </strong>
-                    <span className="text-[7px] md:text-[9px] tracking-[0.5px] md:tracking-[1.5px] uppercase text-neutral-400 font-semibold block mt-0.5 md:mt-1">
+                    <span className="text-[8px] md:text-[10px] tracking-[0.5px] md:tracking-[1.5px] uppercase text-neutral-500 font-semibold block mt-1">
                       {stat.label}
                     </span>
                   </div>

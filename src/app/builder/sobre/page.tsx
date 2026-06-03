@@ -121,9 +121,7 @@ export default function SobrePage() {
 
       <RevitaNav />
 
-      {/* PAGE HERO */}
       <section className="page-hero">
-        <span className="section-label">6.1 — Header</span>
         <div className="container">
           <div className="page-hero-grid">
             <div>
@@ -146,9 +144,17 @@ export default function SobrePage() {
         </div>
       </section>
 
-      {/* VISIÓN */}
+      {/* BANNER IMAGE */}
+      <section className="w-full relative h-[90vh] md:h-[130vh] bg-neutral-100 overflow-hidden border-b border-[#E5E5E5]">
+        <img
+          src="/img/revita/spacejoy-c0JoR_-2x3E-unsplash.jpg"
+          alt="Revita Espacio"
+          className="w-full h-full object-cover grayscale opacity-90 transition-all duration-500 hover:grayscale-0"
+          style={{ objectPosition: '50% 90%' }}
+        />
+      </section>
+
       <section className="section">
-        <span className="section-label">6.2 — Visión</span>
         <div className="container">
           <span className="section-eyebrow">Nuestra visión</span>
           <h2 className="section-title serif">
@@ -157,24 +163,19 @@ export default function SobrePage() {
 
           <div className="vision-grid">
             <div className="vision-card">
-              <span className="vision-num">— 01 / 03</span>
               <p>Aportar al mercado vivienda rehabilitada a precios razonables, contribuyendo a la regeneración del parque residencial español.</p>
             </div>
             <div className="vision-card">
-              <span className="vision-num">— 02 / 03</span>
               <p>Construir relaciones duraderas con nuestros inversores, basadas en honestidad, transparencia y alineación de intereses real.</p>
             </div>
             <div className="vision-card">
-              <span className="vision-num">— 03 / 03</span>
               <p>Generar retornos ajustados al riesgo superiores a la media del mercado, mediante un proceso vertical y profesional.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* REVITA EN DATOS */}
       <section className="section" style={{ background: 'var(--paper)' }}>
-        <span className="section-label">6.3 — Datos</span>
         <div className="container">
           <span className="section-eyebrow">Revita en datos</span>
           <h2 className="section-title serif">
@@ -183,22 +184,18 @@ export default function SobrePage() {
 
           <div className="data-grid">
             <div className="data-item">
-              <span className="data-num">— I</span>
               <div className="data-value">+30</div>
               <div className="data-label">Activos analizados<br />al año</div>
             </div>
             <div className="data-item">
-              <span className="data-num">— II</span>
               <div className="data-value serif"><em>Murcia</em></div>
               <div className="data-label">Foco geográfico:<br />Murcia y Levante</div>
             </div>
             <div className="data-item">
-              <span className="data-num">— III</span>
               <div className="data-value">100%</div>
               <div className="data-label">Plataforma integrada<br />verticalmente</div>
             </div>
             <div className="data-item">
-              <span className="data-num">— IV</span>
               <div className="data-value">SPV</div>
               <div className="data-label">Vehículo dedicado<br />por proyecto</div>
             </div>
@@ -206,9 +203,7 @@ export default function SobrePage() {
         </div>
       </section>
 
-      {/* EQUIPO */}
       <section className="section dark">
-        <span className="section-label on-dark">6.4 — Equipo</span>
         <div className="container">
           <span className="section-eyebrow">El equipo detrás de Revita</span>
           <h2 className="section-title serif">
@@ -250,9 +245,7 @@ export default function SobrePage() {
         </div>
       </section>
 
-      {/* COMPROMISO */}
       <section className="quote-block">
-        <span className="section-label">6.5 — Compromiso</span>
         <div className="container">
           <blockquote>
             &quot;Solo lanzamos proyectos en los que nosotros mismos invertimos. No buscamos volumen, buscamos excelencia.
@@ -263,9 +256,7 @@ export default function SobrePage() {
         </div>
       </section>
 
-      {/* CTA FINAL */}
       <section className="cta-final">
-        <span className="section-label">6.6 — Contacto</span>
         <div className="container-narrow">
           <h2 className="serif">¿<em>Hablamos</em>?</h2>
           <Link href="/builder/contacto" className="btn btn-primary">

@@ -38,7 +38,7 @@ export function SectionVertical() {
             return (
               <div
                 key={idx}
-                className={`p-4 md:p-10 rounded-md flex flex-col justify-start min-h-[180px] md:min-h-[220px] transition-all duration-350 ${
+                className={`p-4 md:p-10 rounded-md flex flex-col justify-start min-h-[230px] md:min-h-[310px] transition-all duration-350 ${
                   isInverted
                     ? 'bg-black text-white'
                     : 'bg-white text-black border border-[#E0E0E0] hover:border-black'
@@ -52,7 +52,7 @@ export function SectionVertical() {
                   {step.title}
                 </h3>
                 <p
-                  className={`font-sans font-light text-[9px] sm:text-xs md:text-sm leading-relaxed ${
+                  className={`font-sans font-light text-[13.5px] sm:text-[18px] md:text-[21px] leading-relaxed ${
                     isInverted ? 'text-neutral-300' : 'text-neutral-600'
                   }`}
                 >

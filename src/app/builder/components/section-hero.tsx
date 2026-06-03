@@ -47,7 +47,7 @@ export function SectionHero() {
           <p className="font-sans font-semibold text-lg md:text-2xl lg:text-[26px] leading-relaxed text-white max-w-[880px] mx-auto">
             Somos una boutique de desarrollo residencial integral.<br />
             Transformamos activos residenciales en inversiones con valor,<br />
-            <span className="text-[#E5A93C] font-bold">
+            <span className="text-white font-bold">
               desde la adquisición hasta la rehabilitación y comercialización.
             </span>
           </p>

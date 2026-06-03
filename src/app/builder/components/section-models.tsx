@@ -1,38 +1,29 @@
 import { ScrollReveal } from './scroll-reveal';
+import Link from 'next/link';
 
 export function SectionModels() {
   const models = [
     {
-      num: '01 / 02',
-      label: 'Modelo de retorno',
+      label: 'Compra · Reforma · Venta',
       title: (
         <>
-          Transformación <span className="italic">residencial</span>
+          Transformación <span className="italic">Residencial</span>
         </>
       ),
-      desc: 'Adquirimos, rehabilitamos y comercializamos viviendas con alto potencial de revalorización. Tres estrategias: Volumen, Foco y Oportunidad.',
+      desc: 'Adquirimos, rehabilitamos y comercializamos viviendas con alto potencial de revalorización. Tres estrategias: Volumen, Foco y Oportunidad. El inversor obtiene su retorno por la venta del activo.',
       img: '/img/revita/dan-gold-ZH0p_FV1GWc-unsplash.jpg',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.6" className="w-12 h-12">
-          <path d="M3 21V9l9-7 9 7v12M9 21v-7h6v7" />
-        </svg>
-      ),
+      link: '/builder/transformacion',
     },
     {
-      num: '02 / 02',
-      label: 'Modelo de patrimonio',
+      label: 'Compra · Reforma · Explotación',
       title: (
         <>
           Carteras <span className="italic">Patrimonialistas</span>
         </>
       ),
-      desc: 'Identificamos y estructuramos activos residenciales para mantener como patrimonio: rentas estables, revalorización del capital y un activo tangible.',
-      img: '/img/revita/spacejoy-9M66C_w_ToM-unsplash.jpg',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.6" className="w-12 h-12">
-          <path d="M2 22h20M4 22V10l8-6 8 6v12M9 22v-8h6v8M9 6h.01M15 6h.01" />
-        </svg>
-      ),
+      desc: 'Identificamos y estructuramos activos inmobiliarios para mantener como patrimonio: cashflow estable, revalorización del capital y un activo tangible.',
+      img: '/img/revita/danist-soh-8Gg2Ne_uTcM-unsplash.jpg',
+      link: '/builder/carteras',
     },
   ];
 
@@ -52,7 +43,7 @@ export function SectionModels() {
               key={idx}
               className="group bg-white border border-neutral-300 hover:border-black transition-all duration-500 overflow-hidden flex flex-col justify-between h-full"
             >
-              {/* Card Header (Image with icon overlay) */}
+              {/* Card Header (Image overlay removed) */}
               <div className="relative aspect-video overflow-hidden bg-neutral-100">
                 <img
                   src={model.img}
@@ -60,12 +51,6 @@ export function SectionModels() {
                   className="w-full h-full object-cover grayscale opacity-90 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100"
                 />
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all duration-500" />
-                <div className="absolute top-4 right-4 md:top-6 md:right-6 font-serif text-[10px] md:text-xs text-neutral-500 group-hover:text-white tracking-widest bg-white/90 group-hover:bg-black/40 px-2 py-1 md:px-3 md:py-1.5 backdrop-blur-sm transition-all duration-300">
-                  {model.num}
-                </div>
-                <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 text-white bg-black/40 p-2 md:p-3 backdrop-blur-sm scale-75 md:scale-100 origin-bottom-left">
-                  {model.icon}
-                </div>
               </div>
 
               {/* Card Body */}
@@ -82,9 +67,12 @@ export function SectionModels() {
                   </p>
                 </div>
                 <div>
-                  <span className="inline-flex items-center gap-2 md:gap-3 text-[9px] md:text-xs tracking-[1.5px] md:tracking-[2px] uppercase text-[#1A1A1A] font-medium border-b border-black pb-1 transition-all duration-300 group-hover:gap-4 md:group-hover:gap-5">
+                  <Link
+                    href={model.link}
+                    className="inline-flex items-center gap-2 md:gap-3 text-[9px] md:text-xs tracking-[1.5px] md:tracking-[2px] uppercase text-[#1A1A1A] font-medium border-b border-black pb-1 transition-all duration-300 group-hover:gap-4 md:group-hover:gap-5 hover:text-neutral-500 hover:border-neutral-500"
+                  >
                     Ver detalle →
-                  </span>
+                  </Link>
                 </div>
               </div>
             </div>
