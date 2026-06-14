@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home — Revita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================
+   REVITA — Stylesheet común
+   Identidad: B&N corporativo, editorial, sobrio
+   ========================================= */
+:root{
+  --black:#0A0A0A;
+  --ink:#1A1A1A;
+  --gray-900:#2A2A2A;
+  --gray-700:#4A4A4A;
+  --gray-500:#7A7A7A;
+  --gray-300:#C8C8C8;
+  --gray-200:#E5E5E5;
+  --gray-100:#F2F2F2;
+  --paper:#FAFAFA;
+  --white:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--white);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.serif{font-family:'Fraunces',serif;font-feature-settings:"ss01" on;}
+.container{max-width:1320px;margin:0 auto;padding:0 40px}
+.container-narrow{max-width:1080px;margin:0 auto;padding:0 40px}
+.container-text{max-width:880px;margin:0 auto;padding:0 40px}
+
+/* ===== PREVIEW BAR ===== */
+.preview-bar{
+  background:var(--black);color:var(--white);
+  padding:12px 40px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+  display:flex;justify-content:space-between;align-items:center;
+  border-bottom:1px solid var(--white);font-weight:500;
+}
+.preview-bar span{opacity:0.5;letter-spacing:0.5px;text-transform:none}
+.preview-nav{display:flex;gap:24px}
+.preview-nav a{
+  color:var(--white);text-decoration:none;font-size:10px;
+  letter-spacing:1.5px;opacity:0.6;transition:opacity 0.2s;
+}
+.preview-nav a:hover{opacity:1}
+.preview-nav a.current{opacity:1;border-bottom:1px solid var(--white);padding-bottom:2px}
+
+/* ===== HEADER ===== */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,0.97);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--gray-200);
+}
+.header-inner{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--black)}
+.logo-mark{
+  width:38px;height:38px;background:var(--black);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Fraunces',serif;font-size:22px;font-weight:400;color:var(--white);
+  font-style:italic;
+}
+.logo-text{font-family:'Fraunces',serif;font-weight:400;font-size:24px;letter-spacing:4px;color:var(--black)}
+.nav{display:flex;gap:38px;align-items:center}
+.nav a{
+  color:var(--ink);text-decoration:none;font-size:13px;
+  font-weight:400;letter-spacing:0.5px;transition:opacity 0.2s;position:relative;
+}
+.nav a:hover{opacity:0.5}
+.nav a.active::after{
+  content:"";position:absolute;bottom:-26px;left:0;right:0;
+  height:1px;background:var(--black);
+}
+.nav-dropdown{position:relative}
+.nav-dropdown > a::after{content:" ↓";font-size:9px;opacity:0.5}
+.nav-dropdown-menu{
+  position:absolute;top:calc(100% + 18px);left:-24px;
+  background:var(--white);border:1px solid var(--gray-200);
+  min-width:280px;padding:16px 0;
+  opacity:0;visibility:hidden;transform:translateY(-8px);
+  transition:all 0.25s ease;z-index:200;
+}
+.nav-dropdown:hover .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-dropdown-menu a{display:block;padding:12px 28px;font-size:14px}
+.nav-dropdown-menu a:hover{background:var(--gray-100);opacity:1}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 26px;font-family:'Inter',sans-serif;
+  font-size:12px;font-weight:500;letter-spacing:2px;
+  text-transform:uppercase;text-decoration:none;border-radius:0;
+  transition:all 0.3s ease;cursor:pointer;border:1px solid var(--black);
+}
+.btn-primary{background:var(--black);color:var(--white)}
+.btn-primary:hover{background:var(--white);color:var(--black)}
+.btn-outline{background:transparent;color:var(--black)}
+.btn-outline:hover{background:var(--black);color:var(--white)}
+.btn-light{background:var(--white);color:var(--black);border-color:var(--white)}
+.btn-light:hover{background:transparent;color:var(--white)}
+.btn-arrow{
+  background:transparent;border:none;color:var(--black);
+  text-decoration:none;font-size:12px;font-weight:500;letter-spacing:2px;
+  text-transform:uppercase;padding:0;display:inline-flex;align-items:center;gap:12px;
+  border-bottom:1px solid var(--black);padding-bottom:6px;
+  transition:gap 0.3s ease;cursor:pointer;
+}
+.btn-arrow:hover{gap:18px}
+.btn-arrow.on-dark{color:var(--white);border-bottom-color:var(--white)}
+
+/* ===== HERO GENÉRICO (interno de página) ===== */
+.page-hero{
+  padding:140px 0 100px;
+  border-bottom:1px solid var(--gray-200);
+  position:relative;
+}
+.page-hero-grid{
+  display:grid;grid-template-columns:1.3fr 1fr;gap:80px;align-items:end;
+}
+.page-eyebrow{
+  display:inline-flex;align-items:center;gap:14px;
+  font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gray-700);margin-bottom:48px;
+}
+.page-eyebrow::before{content:"";width:32px;height:1px;background:var(--black)}
+.page-h1{
+  font-family:'Fraunces',serif;font-weight:300;
+  font-size:clamp(40px, 5.5vw, 78px);line-height:1.02;letter-spacing:-0.03em;
+  color:var(--black);margin-bottom:0;
+}
+.page-h1 em{font-style:italic;font-weight:300}
+.page-h1 .underlined{border-bottom:2px solid var(--black);padding-bottom:4px}
+.page-intro{
+  border-left:1px solid var(--gray-300);
+  padding-left:48px;padding-bottom:12px;
+}
+.page-intro p{
+  font-size:17px;line-height:1.65;font-weight:300;color:var(--gray-700);
+  margin-bottom:32px;
+}
+
+/* ===== SECTION COMMON ===== */
+.section{padding:140px 0;position:relative}
+.section-eyebrow{
+  display:inline-flex;align-items:center;gap:14px;
+  font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gray-700);margin-bottom:32px;
+}
+.section-eyebrow::before{content:"";width:32px;height:1px;background:var(--black)}
+.section-title{
+  font-family:'Fraunces',serif;font-weight:300;
+  font-size:clamp(36px, 4.5vw, 64px);line-height:1.05;
+  color:var(--black);margin-bottom:32px;letter-spacing:-0.025em;max-width:900px;
+}
+.section-title em{font-style:italic;font-weight:300}
+.section-subtitle{
+  font-size:18px;color:var(--gray-700);max-width:680px;
+  line-height:1.65;margin-bottom:80px;font-weight:300;
+}
+
+/* Dark sections */
+.dark{background:var(--black);color:var(--white)}
+.dark .section-title{color:var(--white)}
+.dark .section-subtitle{color:rgba(255,255,255,0.65)}
+.dark .section-eyebrow{color:rgba(255,255,255,0.6)}
+.dark .section-eyebrow::before{background:var(--white)}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--black);color:rgba(255,255,255,0.7);padding:100px 0 32px}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;
+  gap:64px;margin-bottom:80px;padding-bottom:80px;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+.footer-logo{margin-bottom:32px}
+.footer-logo .logo-mark{background:var(--white);color:var(--black)}
+.footer-logo .logo-text{color:var(--white)}
+.footer-tagline{
+  font-family:'Fraunces',serif;font-size:22px;font-weight:300;line-height:1.4;
+  margin-bottom:32px;color:var(--white);font-style:italic;letter-spacing:-0.01em;
+}
+.footer-contact{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.9;font-weight:300}
+.footer h4{
+  font-family:'Inter',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,0.5);margin-bottom:28px;
+}
+.footer-list{list-style:none}
+.footer-list li{margin-bottom:14px}
+.footer-list a{
+  color:var(--white);text-decoration:none;font-size:14px;
+  transition:opacity 0.2s;font-weight:300;
+}
+.footer-list a:hover{opacity:0.6}
+.newsletter-form{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.newsletter-form input{
+  background:transparent;border:none;
+  border-bottom:1px solid rgba(255,255,255,0.25);
+  color:var(--white);padding:12px 0;font-size:14px;
+  border-radius:0;font-family:inherit;font-weight:300;
+}
+.newsletter-form input::placeholder{color:rgba(255,255,255,0.4);font-weight:300}
+.newsletter-form input:focus{outline:none;border-color:var(--white)}
+.newsletter-form button{
+  background:var(--white);color:var(--black);border:none;
+  padding:14px;font-size:11px;font-weight:600;letter-spacing:2.5px;
+  text-transform:uppercase;cursor:pointer;margin-top:16px;transition:opacity 0.2s;
+}
+.newsletter-form button:hover{opacity:0.85}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11px;color:rgba(255,255,255,0.4);
+  flex-wrap:wrap;gap:16px;letter-spacing:0.5px;margin-bottom:24px;
+}
+.footer-bottom a{color:rgba(255,255,255,0.6);text-decoration:none}
+.footer-bottom a:hover{color:var(--white)}
+.footer-disclaimer{
+  max-width:800px;font-size:11px;line-height:1.7;
+  color:rgba(255,255,255,0.3);font-weight:300;font-style:italic;
+}
+
+.section-label{
+  position:absolute;top:24px;right:40px;z-index:5;
+  background:transparent;color:var(--gray-500);padding:0;
+  font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;
+  display:flex;align-items:center;gap:10px;
+}
+.section-label::before{content:"";width:24px;height:1px;background:var(--gray-300)}
+.section-label.on-dark{color:rgba(255,255,255,0.5)}
+.section-label.on-dark::before{background:rgba(255,255,255,0.3)}
+section{position:relative}
+
+/* ===== FORMULARIO CONTACT BASE ===== */
+.contact-form{
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;
+  max-width:880px;margin:0 auto;
+}
+.contact-form .full{grid-column:1 / -1}
+.contact-form label{
+  display:block;font-size:10px;font-weight:500;letter-spacing:2px;
+  text-transform:uppercase;color:var(--gray-700);margin-bottom:8px;
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+  width:100%;background:transparent;border:none;
+  border-bottom:1px solid var(--gray-300);
+  padding:12px 0;font-size:15px;font-family:inherit;font-weight:300;
+  color:var(--black);border-radius:0;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{outline:none;border-bottom-color:var(--black)}
+.contact-form textarea{resize:vertical;min-height:100px}
+.contact-form .check-row{
+  display:flex;align-items:flex-start;gap:12px;font-size:13px;
+  color:var(--gray-700);font-weight:300;line-height:1.6;
+}
+.contact-form .check-row input{width:auto;margin-top:4px}
+.contact-form .check-row a{color:var(--black);text-decoration:underline}
+.contact-form .submit-row{text-align:left;margin-top:16px}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:900px){
+  .nav{display:none}
+  .container, .container-narrow, .container-text{padding:0 24px}
+  .page-hero-grid{grid-template-columns:1fr;gap:48px}
+  .page-intro{border-left:none;border-top:1px solid var(--gray-300);padding-left:0;padding-top:32px}
+  .footer-top{grid-template-columns:1fr;gap:48px}
+  .section, .page-hero{padding:80px 0}
+  .preview-bar{padding:10px 20px;font-size:9px}
+  .preview-bar span{display:none}
+  .preview-nav{gap:14px}
+  .contact-form{grid-template-columns:1fr;gap:16px}
+}
+
+</style>
+<style>
+.hero{position:relative;background:var(--white);padding:100px 0 120px;border-bottom:1px solid var(--gray-200);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:80px;align-items:end}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gray-700);margin-bottom:48px}
+.hero-eyebrow::before{content:"";width:32px;height:1px;background:var(--black)}
+.hero h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(46px, 6.5vw, 92px);line-height:0.98;letter-spacing:-0.03em;margin-bottom:0;color:var(--black)}
+.hero h1 em{font-style:italic;font-weight:300}
+.hero h1 .underlined{border-bottom:2px solid var(--black);padding-bottom:4px}
+.hero-right{border-left:1px solid var(--gray-300);padding-left:48px;padding-bottom:12px}
+.hero-subtitle{font-size:17px;line-height:1.6;font-weight:300;color:var(--gray-700);margin-bottom:36px}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.hero-bottom{margin-top:120px;display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid var(--gray-200);padding-top:32px;flex-wrap:wrap;gap:24px}
+.hero-bottom-text{display:flex;align-items:center;gap:14px;font-size:12px;color:var(--gray-700);letter-spacing:1px;text-transform:uppercase;font-weight:500}
+.hero-bottom-text::before{content:"";width:6px;height:6px;background:var(--black);border-radius:50%}
+.hero-bottom-num{font-family:'Fraunces',serif;font-size:14px;color:var(--gray-500);letter-spacing:2px}
+
+.kpis{background:var(--black);color:var(--white);padding:0}
+.kpis-grid{display:grid;grid-template-columns:repeat(3, 1fr)}
+.kpi{padding:80px 60px;border-right:1px solid rgba(255,255,255,0.12);position:relative;transition:background 0.3s ease}
+.kpi:last-child{border-right:none}
+.kpi:hover{background:var(--gray-900)}
+.kpi-num{font-family:'Fraunces',serif;font-size:14px;font-weight:400;color:rgba(255,255,255,0.4);letter-spacing:2px;margin-bottom:32px}
+.kpi-value{font-family:'Fraunces',serif;font-size:84px;font-weight:300;color:var(--white);line-height:0.95;margin-bottom:20px;letter-spacing:-0.04em}
+.kpi-label{font-size:12px;color:rgba(255,255,255,0.65);letter-spacing:2.5px;text-transform:uppercase;font-weight:500;line-height:1.5}
+
+.lead-magnet{background:var(--paper);padding:120px 0;border-bottom:1px solid var(--gray-200)}
+.lead-magnet-inner{max-width:680px;margin:0 auto;text-align:center}
+.lead-magnet h2{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(32px, 4vw, 52px);line-height:1.1;color:var(--black);margin-bottom:20px;letter-spacing:-0.02em}
+.lead-magnet h2 em{font-style:italic}
+.lead-magnet-sub{font-size:16px;color:var(--gray-700);margin-bottom:40px;font-weight:300;max-width:520px;margin-left:auto;margin-right:auto}
+.lead-form{display:flex;gap:12px;max-width:520px;margin:0 auto;flex-wrap:wrap}
+.lead-form input{flex:1;min-width:180px;background:transparent;border:none;border-bottom:1px solid var(--gray-300);padding:14px 0;font-size:15px;font-family:inherit;font-weight:300;color:var(--black);border-radius:0}
+.lead-form input::placeholder{color:var(--gray-500)}
+.lead-form input:focus{outline:none;border-bottom-color:var(--black)}
+.lead-form button{background:var(--black);color:var(--white);border:1px solid var(--black);padding:14px 24px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.3s ease}
+.lead-form button:hover{background:var(--white);color:var(--black)}
+
+.vertical-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:0;border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)}
+.vertical-card{padding:56px 40px;border-right:1px solid var(--gray-200);position:relative}
+.vertical-card:last-child{border-right:none}
+.vertical-num{font-family:'Fraunces',serif;font-size:13px;color:var(--gray-500);letter-spacing:2px;margin-bottom:48px;display:block}
+.vertical-card h3{font-family:'Fraunces',serif;font-weight:400;font-size:28px;color:var(--black);margin-bottom:24px;line-height:1.15;letter-spacing:-0.01em}
+.vertical-card p{color:var(--gray-700);line-height:1.7;font-size:15px;font-weight:300}
+
+/* DOS TARJETAS DE MODELO DE INVERSIÓN — al estilo AHS */
+.models{background:var(--paper)}
+.models-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:32px;margin-top:24px}
+.model-card{
+  position:relative;background:var(--white);
+  border:1px solid var(--gray-300);
+  padding:0;overflow:hidden;
+  transition:all 0.4s ease;text-decoration:none;color:inherit;display:block;
+}
+.model-card:hover{border-color:var(--black);transform:translateY(-4px)}
+.model-card-img{
+  aspect-ratio:16/9;background:var(--gray-100);
+  background:
+    linear-gradient(135deg, rgba(0,0,0,0.05) 25%, transparent 25%, transparent 50%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.05) 75%, transparent 75%),
+    var(--gray-100);
+  background-size:24px 24px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gray-300);
+  position:relative;
+}
+.model-card-img svg{width:80px;height:80px}
+.model-card-num{
+  position:absolute;top:24px;right:24px;
+  font-family:'Fraunces',serif;font-size:13px;color:var(--gray-500);letter-spacing:2px;
+}
+.model-card-body{padding:48px 40px 56px}
+.model-card-label{
+  font-size:11px;font-weight:500;letter-spacing:3px;color:var(--gray-700);
+  text-transform:uppercase;margin-bottom:16px;
+}
+.model-card h3{
+  font-family:'Fraunces',serif;font-weight:400;font-size:34px;
+  color:var(--black);margin-bottom:20px;line-height:1.1;letter-spacing:-0.015em;
+}
+.model-card h3 em{font-style:italic}
+.model-card p{
+  font-size:16px;color:var(--gray-700);line-height:1.65;
+  margin-bottom:32px;font-weight:300;min-height:80px;
+}
+.model-card-cta{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;
+  color:var(--black);border-bottom:1px solid var(--black);padding-bottom:6px;
+  transition:gap 0.3s ease;
+}
+.model-card:hover .model-card-cta{gap:18px}
+
+.projects-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;flex-wrap:wrap;gap:32px;border-bottom:1px solid var(--gray-200);padding-bottom:32px}
+.projects-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:48px}
+.project-card{position:relative;cursor:pointer;display:block;text-decoration:none;color:inherit}
+.project-img{aspect-ratio:4/5;position:relative;overflow:hidden;background:var(--gray-100);margin-bottom:24px}
+.project-img-placeholder{width:100%;height:100%;background:linear-gradient(135deg, rgba(0,0,0,0.04) 25%, transparent 25%, transparent 50%, rgba(0,0,0,0.04) 50%, rgba(0,0,0,0.04) 75%, transparent 75%),var(--gray-100);background-size:20px 20px;display:flex;align-items:center;justify-content:center;color:var(--gray-300);transition:transform 0.6s cubic-bezier(.2,.6,.2,1)}
+.project-card:hover .project-img-placeholder{transform:scale(1.04)}
+.project-img-placeholder svg{width:100px;height:100px}
+.project-badge{position:absolute;top:20px;left:20px;padding:7px 14px;font-size:10px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;background:var(--white);color:var(--black);z-index:2;border:1px solid var(--black)}
+.project-badge.exec{background:var(--black);color:var(--white)}
+.project-badge.closed{background:transparent;color:var(--gray-500);border-color:var(--gray-300)}
+.project-num{position:absolute;bottom:20px;right:20px;font-family:'Fraunces',serif;font-size:14px;color:var(--gray-500);letter-spacing:2px}
+.project-location{font-size:11px;letter-spacing:3px;color:var(--gray-700);text-transform:uppercase;margin-bottom:10px;font-weight:500}
+.project-name{font-family:'Fraunces',serif;font-size:24px;font-weight:400;color:var(--black);margin-bottom:20px;line-height:1.15;letter-spacing:-0.01em;transition:font-style 0.3s ease}
+.project-card:hover .project-name{font-style:italic}
+.project-stats{display:flex;gap:24px;font-size:13px;color:var(--gray-700);padding-top:16px;border-top:1px solid var(--gray-200);font-weight:300}
+.project-stats strong{color:var(--black);font-family:'Fraunces',serif;font-weight:400;font-size:15px;display:block}
+.project-stats > div{flex:1}
+.project-stats-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-500);margin-top:4px}
+
+.compare{background:var(--white)}
+.compare-table{border-top:1px solid var(--black);border-bottom:1px solid var(--black);max-width:1200px;margin:0 auto}
+.compare-row{display:grid;grid-template-columns:0.8fr 1.6fr 1.6fr;border-bottom:1px solid var(--gray-200)}
+.compare-row:last-child{border-bottom:none}
+.compare-head{border-bottom:1px solid var(--black)}
+.compare-head > div{padding:32px 28px;font-family:'Fraunces',serif;font-size:18px;font-weight:400;color:var(--black)}
+.compare-head .head-label{font-size:11px;font-family:'Inter',sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--gray-500);font-weight:500}
+.compare-cell{padding:28px;font-size:15px;line-height:1.6;font-weight:300}
+.compare-concept{font-family:'Fraunces',serif;font-weight:400;font-style:italic;color:var(--black);font-size:18px}
+.compare-revita{color:var(--black);position:relative;padding-left:56px;font-weight:400}
+.compare-revita::before{content:"";position:absolute;left:28px;top:34px;width:14px;height:14px;border-radius:50%;background:var(--black)}
+.compare-solo{color:var(--gray-500);position:relative;padding-left:56px;text-decoration:line-through;text-decoration-color:var(--gray-300)}
+.compare-solo::before{content:"";position:absolute;left:28px;top:34px;width:14px;height:14px;border-radius:50%;border:1px solid var(--gray-300)}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .hero-right{border-left:none;border-top:1px solid var(--gray-300);padding-left:0;padding-top:32px}
+  .kpis-grid, .vertical-grid, .models-grid, .projects-grid{grid-template-columns:1fr;gap:0}
+  .models-grid{gap:24px}
+  .vertical-card{border-right:none;border-bottom:1px solid var(--gray-200)}
+  .vertical-card:last-child{border-bottom:none}
+  .kpi{border-right:none;border-bottom:1px solid rgba(255,255,255,0.12);padding:60px 32px}
+  .kpi-value{font-size:64px}
+  .compare-row{grid-template-columns:1fr}
+  .compare-concept{background:var(--black);color:var(--white);padding:18px 24px;font-size:14px}
+  .compare-head{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="preview-bar">
+  <div>REVITA — Previsualización v4 · B&amp;N corporativo</div>
+  <nav class="preview-nav"><a href="Revita_Web_1_Inicio.html" class="current">Home</a><a href="Revita_Web_3_Proceso.html" class="">Proceso</a><a href="Revita_Web_6_Sobre.html" class="">Sobre Revita</a><a href="Revita_Web_7_Contacto.html" class="">Contacto</a><a href="Revita_Web_8_Blog.html" class="">Blog</a></nav>
+</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="Revita_Web_1_Inicio.html" class="logo">
+      <div class="logo-mark">R</div>
+      <div class="logo-text">REVITA</div>
+    </a>
+    <nav class="nav">
+      <div class="nav-dropdown">
+        <a href="#" class="">Inversiones</a>
+        <div class="nav-dropdown-menu">
+          <a href="#">Transformación residencial</a>
+          <a href="#">Carteras Patrimonialistas</a>
+        </div>
+      </div>
+      <a href="Revita_Web_3_Proceso.html" class="">Proceso</a>
+      <a href="#">Proyectos</a>
+      <a href="Revita_Web_6_Sobre.html" class="">Sobre Revita</a>
+      <a href="Revita_Web_8_Blog.html" class="">Blog</a>
+      <a href="Revita_Web_7_Contacto.html" class="btn btn-primary" style="padding:11px 22px">Habla con un asesor</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="section-label">1.1 — Hero</span>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-eyebrow">Murcia · Levante · 2025</span>
+        <h1 class="serif">Transformamos<br>inmuebles en<br><em>inversiones</em><br><span class="underlined">con valor</span>.</h1>
+      </div>
+      <div class="hero-right">
+        <p class="hero-subtitle">Gestionamos oportunidades de inversión residencial cuidadosamente seleccionadas. Diversifica tu capital y alcanza rentabilidades del 8&nbsp;–&nbsp;14&nbsp;% anual con riesgo controlado.</p>
+        <div class="hero-cta">
+          <a href="Revita_Web_7_Contacto.html" class="btn btn-primary">Habla con un asesor</a>
+          <a href="#proyectos" class="btn-arrow">Ver proyectos</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bottom">
+      <div class="hero-bottom-text">Co-invertimos en cada proyecto que ofrecemos</div>
+      <div class="hero-bottom-num">— 001 / 008</div>
+    </div>
+  </div>
+</section>
+
+<!-- KPIs -->
+<section class="kpis">
+  <span class="section-label on-dark">1.2 — Datos clave</span>
+  <div class="kpis-grid">
+    <div class="kpi"><div class="kpi-num">— I</div><div class="kpi-value">+2 M<span style="font-size:50px">€</span></div><div class="kpi-label">Inversión<br>comprometida</div></div>
+    <div class="kpi"><div class="kpi-num">— II</div><div class="kpi-value">12–18</div><div class="kpi-label">Meses de plazo<br>medio por operación</div></div>
+    <div class="kpi"><div class="kpi-num">— III</div><div class="kpi-value">8–14<span style="font-size:50px">%</span></div><div class="kpi-label">TIR media<br>estimada al inversor</div></div>
+  </div>
+</section>
+
+<!-- LEAD MAGNET -->
+<section class="lead-magnet">
+  <span class="section-label">1.3 — Lead magnet</span>
+  <div class="container">
+    <div class="lead-magnet-inner">
+      <h2 class="serif">Descárgate el documento<br>de <em>nuestro modelo de negocio</em>.</h2>
+      <p class="lead-magnet-sub">Déjanos tu nombre y correo y te enviamos el dossier con las próximas oportunidades de inversión.</p>
+      <form class="lead-form" onsubmit="event.preventDefault()">
+        <input type="text" placeholder="Nombre" required>
+        <input type="email" placeholder="Correo electrónico*" required>
+        <button type="submit">Enviar →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRACIÓN VERTICAL -->
+<section class="section">
+  <span class="section-label">1.4 — Modelo</span>
+  <div class="container">
+    <span class="section-eyebrow">Integración vertical de procesos</span>
+    <h2 class="section-title serif">Controlamos cada etapa.<br><em>Sin intermediarios.</em></h2>
+    <p class="section-subtitle">Operamos como una plataforma integral: desde la identificación del activo hasta la comercialización. Esta verticalización es la base de la rentabilidad.</p>
+    <div class="vertical-grid">
+      <div class="vertical-card"><span class="vertical-num">— 01 / 03</span><h3 class="serif">Adquisición<br>y análisis</h3><p>Equipo dedicado a localizar las mejores oportunidades en Murcia y la costa del Levante. Análisis financiero, técnico y legal exhaustivo antes de comprar.</p></div>
+      <div class="vertical-card"><span class="vertical-num">— 02 / 03</span><h3 class="serif">Construcción<br>y arquitectura</h3><p>Rehabilitación integral con procesos industrializados que reducen plazos y costes sin comprometer la calidad del resultado final.</p></div>
+      <div class="vertical-card"><span class="vertical-num">— 03 / 03</span><h3 class="serif">Servicios<br>inmobiliarios</h3><p>Gestión, comercialización y, cuando aplica, explotación del activo. Cierre del ciclo y devolución al inversor.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOS MODELOS DE INVERSIÓN — AHS style -->
+<section class="section models">
+  <span class="section-label">1.5 — Modelos de inversión</span>
+  <div class="container">
+    <span class="section-eyebrow">Modelos de inversión</span>
+    <h2 class="section-title serif">Dos modelos de inversión,<br><em>con distintas estrategias.</em></h2>
+
+    <div class="models-grid">
+      <a href="#" class="model-card">
+        <div class="model-card-img">
+          <span class="model-card-num">— 01 / 02</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.6"><path d="M3 21V9l9-7 9 7v12M9 21v-7h6v7"/></svg>
+        </div>
+        <div class="model-card-body">
+          <div class="model-card-label">Modelo de retorno</div>
+          <h3 class="serif">Transformación <em>residencial</em></h3>
+          <p>Adquirimos, rehabilitamos y comercializamos viviendas con alto potencial de revalorización. Tres estrategias: Volumen, Foco y Oportunidad.</p>
+          <span class="model-card-cta">Ver detalle →</span>
+        </div>
+      </a>
+
+      <a href="#" class="model-card">
+        <div class="model-card-img">
+          <span class="model-card-num">— 02 / 02</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.6"><path d="M2 22h20M4 22V10l8-6 8 6v12M9 22v-8h6v8M9 6h.01M15 6h.01"/></svg>
+        </div>
+        <div class="model-card-body">
+          <div class="model-card-label">Modelo de patrimonio</div>
+          <h3 class="serif">Carteras <em>Patrimonialistas</em></h3>
+          <p>Identificamos y estructuramos activos residenciales para mantener como patrimonio: rentas estables, revalorización del capital y un activo tangible.</p>
+          <span class="model-card-cta">Ver detalle →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section class="section" id="proyectos">
+  <span class="section-label">1.6 — Proyectos</span>
+  <div class="container">
+    <div class="projects-header">
+      <div>
+        <span class="section-eyebrow">Inversiones realizadas</span>
+        <h2 class="section-title serif" style="margin-bottom:0">Últimos proyectos<br><em>inmobiliarios</em>.</h2>
+      </div>
+      <a href="#" class="btn-arrow">Ver todos</a>
+    </div>
+    <div class="projects-grid">
+      <a href="#" class="project-card"><div class="project-img"><span class="project-badge">Disponible</span><div class="project-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.6"><path d="M3 21V9l9-7 9 7v12M9 21v-7h6v7"/></svg></div><span class="project-num">№ 001</span></div><div class="project-location">Murcia · El Carmen</div><h3 class="project-name serif">Calle Sociedad, 14</h3><div class="project-stats"><div><strong>+10%</strong><div class="project-stats-label">TIR</div></div><div><strong>12m</strong><div class="project-stats-label">Plazo</div></div><div><strong>—</strong><div class="project-stats-label">Mínimo</div></div></div></a>
+      <a href="#" class="project-card"><div class="project-img"><span class="project-badge exec">En ejecución</span><div class="project-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.6"><path d="M2 22h20M4 22V10l8-6 8 6v12M9 22v-8h6v8"/></svg></div><span class="project-num">№ 002</span></div><div class="project-location">Murcia · Vistalegre</div><h3 class="project-name serif">Av. del Progreso, 22</h3><div class="project-stats"><div><strong>+11%</strong><div class="project-stats-label">TIR</div></div><div><strong>14m</strong><div class="project-stats-label">Plazo</div></div><div><strong>—</strong><div class="project-stats-label">Mínimo</div></div></div></a>
+      <a href="#" class="project-card"><div class="project-img"><span class="project-badge closed">Cerrado</span><div class="project-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.6"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg></div><span class="project-num">№ 003</span></div><div class="project-location">Molina de Segura · Centro</div><h3 class="project-name serif">Calle Mayor, 8</h3><div class="project-stats"><div><strong>+12%</strong><div class="project-stats-label">TIR final</div></div><div><strong>9m</strong><div class="project-stats-label">Plazo</div></div><div><strong>—</strong><div class="project-stats-label">Finalizado</div></div></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARATIVA -->
+<section class="section compare">
+  <span class="section-label">1.7 — Comparativa</span>
+  <div class="container">
+    <span class="section-eyebrow">Por qué Revita</span>
+    <h2 class="section-title serif">La diferencia entre invertir<br><em>con criterio</em> o sin él.</h2>
+    <p class="section-subtitle">Entre un equipo verticalmente integrado y hacerlo en solitario hay un mundo.</p>
+    <div class="compare-table">
+      <div class="compare-row compare-head"><div><span class="head-label">Concepto</span></div><div>Con Revita</div><div><span class="head-label">Por tu cuenta</span></div></div>
+      <div class="compare-row"><div class="compare-cell compare-concept">Estrategia</div><div class="compare-cell compare-revita">Plan a tu medida.</div><div class="compare-cell compare-solo">Incertidumbre y falta de criterio.</div></div>
+      <div class="compare-row"><div class="compare-cell compare-concept">Compromiso</div><div class="compare-cell compare-revita">Co-inversión: ponemos nuestro capital contigo.</div><div class="compare-cell compare-solo">Todo el riesgo recae sobre tus hombros.</div></div>
+      <div class="compare-row"><div class="compare-cell compare-concept">Transparencia</div><div class="compare-cell compare-revita">Informes de avance y acceso a números reales.</div><div class="compare-cell compare-solo">Opacidad y sorpresas financieras.</div></div>
+      <div class="compare-row"><div class="compare-cell compare-concept">Operativa</div><div class="compare-cell compare-revita">Gestión directa de obra y proveedores.</div><div class="compare-cell compare-solo">Estrés constante, retrasos y agobios.</div></div>
+      <div class="compare-row"><div class="compare-cell compare-concept">Tu tiempo</div><div class="compare-cell compare-revita">Libertad. Nosotros nos ocupamos de todo.</div><div class="compare-cell compare-solo">Horas perdidas en gestión.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <span class="section-label on-dark">Footer</span>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="logo footer-logo">
+          <div class="logo-mark">R</div>
+          <div class="logo-text">REVITA</div>
+        </div>
+        <p class="footer-tagline serif">Plataforma de desarrollo<br>residencial integral.</p>
+        <p class="footer-contact">
+          Murcia, España<br>
+          inversores@revita.es<br>
+          +34 XXX XX XX XX
+        </p>
+      </div>
+
+      <div>
+        <h4>Inversiones</h4>
+        <ul class="footer-list">
+          <li><a href="#">Transformación residencial</a></li>
+          <li><a href="#">Carteras Patrimonialistas</a></li>
+          <li><a href="Revita_Web_3_Proceso.html">Proceso</a></li>
+          <li><a href="#">Proyectos</a></li>
+          <li><a href="Revita_Web_6_Sobre.html">Sobre Revita</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Legal</h4>
+        <ul class="footer-list">
+          <li><a href="#">Aviso legal</a></li>
+          <li><a href="#">Privacidad</a></li>
+          <li><a href="#">Cookies</a></li>
+          <li><a href="#">Inversor</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Newsletter</h4>
+        <p style="font-size:13px;line-height:1.6;color:rgba(255,255,255,0.55);margin-bottom:20px;font-weight:300">Recibe las próximas oportunidades antes que nadie.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault()">
+          <input type="email" placeholder="Correo electrónico" required>
+          <input type="tel" placeholder="Teléfono" required>
+          <button type="submit">Suscribirme</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2025 Revita, S.L. — Todos los derechos reservados</div>
+      <div><a href="#">LinkedIn ↗</a></div>
+    </div>
+    <div class="footer-disclaimer">
+      La inversión en proyectos inmobiliarios conlleva riesgos, incluida la posible pérdida total o parcial del capital. La rentabilidad histórica o estimada no garantiza rentabilidades futuras.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
