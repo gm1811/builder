@@ -48,47 +48,42 @@ export function SectionProjects() {
     <section id="proyectos" className="py-12 md:py-16">
       <div className="max-w-[1320px] mx-auto px-6 md:px-10">
         <ScrollReveal>
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 border-b border-[#E5E5E5] pb-8 mb-16">
-            <div>
-              <h2 className="font-serif font-light text-4xl md:text-5xl text-[#1A1A1A] leading-tight tracking-tight">
-                Últimos proyectos<br />
-                <span className="italic">inmobiliarios.</span>
-              </h2>
-            </div>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 border-b border-[#E5E5E5] pb-8 mb-10 md:mb-16">
+            <h2 className="font-serif font-light text-3xl md:text-5xl text-[#1A1A1A] leading-tight tracking-tight">
+              Últimos proyectos<br />
+              <span className="italic">inmobiliarios.</span>
+            </h2>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-3 gap-3 md:gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-4 md:gap-8 lg:gap-12">
           {projects.map((project, idx) => (
-            <Link key={idx} href="#" className="group block text-decoration-none text-inherit">
-              {/* Project Image */}
+            <Link key={idx} href="#" className="group block">
               <div className="relative aspect-[4/5] bg-neutral-100 overflow-hidden mb-4 md:mb-6">
-                <span className={`absolute top-2 left-2 md:top-5 md:left-5 z-10 px-1.5 py-0.5 md:px-3.5 md:py-1.5 text-[7px] md:text-[9px] font-medium tracking-[1.5px] md:tracking-[2.5px] uppercase ${project.badgeClass}`}>
+                <span className={`absolute top-3 left-3 md:top-5 md:left-5 z-10 px-2.5 py-1 md:px-3.5 md:py-1.5 text-[9px] md:text-[9px] font-medium tracking-[2px] uppercase ${project.badgeClass}`}>
                   {project.badge}
                 </span>
                 <img
                   src={project.img}
                   alt={project.name}
-                  className="w-full h-full object-cover grayscale opacity-90 transition-transform duration-700 group-hover:scale-104 group-hover:grayscale-0 group-hover:opacity-100"
+                  className="w-full h-full object-cover grayscale opacity-90 transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100"
                 />
               </div>
 
-              {/* Project Meta */}
-              <div className="text-[8px] md:text-[11px] font-semibold tracking-[1.5px] md:tracking-[3px] uppercase text-neutral-500 mb-1 md:mb-2">
+              <div className="text-[10px] md:text-[11px] font-semibold tracking-[2px] md:tracking-[3px] uppercase text-neutral-500 mb-1 md:mb-2">
                 {project.location}
               </div>
-              <h3 className="font-serif text-sm sm:text-base md:text-2xl font-normal text-black leading-snug tracking-tight mb-3 md:mb-5 group-hover:italic transition-all duration-300">
+              <h3 className="font-serif text-lg md:text-2xl font-normal text-black leading-snug tracking-tight mb-3 md:mb-5 group-hover:italic transition-all duration-300">
                 {project.name}
               </h3>
 
-              {/* Project Stats */}
-              <div className="grid grid-cols-3 gap-1.5 md:gap-2.5 mt-4">
+              <div className="grid grid-cols-3 gap-2 md:gap-2.5 mt-4">
                 {project.stats.map((stat, sIdx) => (
-                  <div key={sIdx} className="bg-neutral-50 border border-neutral-200/60 p-2 md:p-3 text-center transition-all duration-300 group-hover:bg-neutral-100/80 group-hover:border-neutral-300">
-                    <strong className="font-serif font-normal text-[15px] sm:text-[18px] md:text-[24px] text-[#1A1A1A] block leading-tight">
+                  <div key={sIdx} className="bg-neutral-50 border border-neutral-200/60 p-2.5 md:p-3 text-center transition-all duration-300 group-hover:bg-neutral-100/80 group-hover:border-neutral-300">
+                    <strong className="font-serif font-normal text-lg md:text-2xl text-[#1A1A1A] block leading-tight">
                       {stat.value}
                     </strong>
-                    <span className="text-[8px] md:text-[10px] tracking-[0.5px] md:tracking-[1.5px] uppercase text-neutral-500 font-semibold block mt-1">
+                    <span className="text-[9px] md:text-[10px] tracking-[1px] uppercase text-neutral-500 font-semibold block mt-1">
                       {stat.label}
                     </span>
                   </div>

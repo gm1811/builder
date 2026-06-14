@@ -31,19 +31,19 @@ export function SectionKPIs() {
 
   return (
     <section className="bg-[#0A0A0A] text-white border-t border-neutral-900">
-      <div className="max-w-[1320px] mx-auto grid grid-cols-3">
+      <div className="max-w-[1320px] mx-auto grid grid-cols-1 md:grid-cols-3">
         {kpis.map((kpi, idx) => (
           <div
             key={idx}
-            className="p-3 sm:p-10 md:p-16 border-r last:border-r-0 border-neutral-900 hover:bg-neutral-950 transition-all duration-300 group"
+            className="p-8 sm:p-10 md:p-16 border-b md:border-b-0 md:border-r last:border-b-0 last:border-r-0 border-neutral-800 hover:bg-neutral-950 transition-all duration-300 group"
           >
-            <div className="mb-4 sm:mb-10 text-white opacity-60 group-hover:opacity-100 transition-opacity">
+            <div className="mb-6 md:mb-10 text-white opacity-60 group-hover:opacity-100 transition-opacity">
               {kpi.icon}
             </div>
-            <div className="font-serif text-xl sm:text-6xl md:text-7xl lg:text-8vw font-light tracking-tighter mb-2 sm:mb-4 text-white">
+            <div className="font-serif text-5xl sm:text-6xl md:text-7xl font-light tracking-tighter mb-3 md:mb-4 text-white">
               {kpi.value}
             </div>
-            <div className="text-[12px] sm:text-[17px] md:text-[20px] uppercase tracking-[1px] sm:tracking-[2.5px] text-neutral-400 font-medium leading-relaxed max-w-[340px]">
+            <div className="text-[13px] sm:text-[15px] md:text-[18px] uppercase tracking-[2px] text-neutral-400 font-medium leading-relaxed max-w-[340px]">
               {kpi.label}
             </div>
           </div>
