@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "QR Sell Store"
+version = "1.0.0"
+id = "artifacts/qr-sell-store"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18427
+
+[services.development]
+run = "pnpm --filter @workspace/qr-sell-store run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/qr-sell-store", "run", "build" ]
+publicDir = "artifacts/qr-sell-store/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18427"
+BASE_PATH = "/"

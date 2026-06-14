@@ -1,1 +1,2 @@
 .migration-backup/src/app/builder/HTML[[:space:]]base/FOTOS-20260519T153944Z-3-001.zip filter=lfs diff=lfs merge=lfs -text
+artifacts/qr-sell-store/src/app/builder/HTML[[:space:]]base/FOTOS-20260519T153944Z-3-001.zip filter=lfs diff=lfs merge=lfs -text
